@@ -74,18 +74,12 @@ if(isset($_POST)){
         // Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
 
-        // $Serveur = "smtp.mail.yahoo.com";
-        // $SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        // $port = 465;
-        // $userName = "server.smtp@yahoo.com";
-        // $password ="Password.1234";
-
-
-        $Serveur = "smtp.gmail.com";
+        $Serveur = "pro.eu.turbo-smtp.com";
         $SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $port = 465;
         $userName = "pierre.weets@gmail.com";
-        $password ="Piwi!5830";
+        $password ="A3Aw4lM4";
+        
 
         try {
             //Server settings
