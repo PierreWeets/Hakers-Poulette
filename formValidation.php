@@ -16,7 +16,7 @@ use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
 //require '/home/user/vendor/autoload.php';
-require './vendor/autoload.php';
+include './vendor/autoload.php';
 
 
 
