@@ -1,6 +1,14 @@
 <?php
+function console_log($output, $with_script_tags = true) {
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+');';
+    if ($with_script_tags) {
+        $js_code = '<script>' . $js_code . '</script>';
+    }
+    echo $js_code;
+}
 //require ('pass.php');
-
+console_log("form validation.");
 
 //$pass = "Piwi!5830";
 use PHPMailer\PHPMailer\PHPMailer;
@@ -9,6 +17,8 @@ use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
 require '/home/user/vendor/autoload.php';
+
+
 
 //---------------------
 // echo "<pre>";
@@ -107,9 +117,12 @@ if(isset($_POST)){
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
-            echo 'Message has been sent';
+            echo '<br>Message has been sent';
+            console_log("Message has been sent.");
+
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            echo "<br>Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            console_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
         }
     }
 }
