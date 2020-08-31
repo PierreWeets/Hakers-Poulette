@@ -1,0 +1,12 @@
+{
+    "name": "user/hakers-poulette",
+    "authors": [
+        {
+            "name": "PierreWeets",
+            "email": "pierre.weets@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.1"
+    }
+}

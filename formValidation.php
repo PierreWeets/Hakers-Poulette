@@ -7,7 +7,6 @@ function console_log($output, $with_script_tags = true) {
     }
     echo $js_code;
 }
-//require ('pass.php');
 console_log("form validation.");
 
 //$pass = "Piwi!5830";
@@ -16,7 +15,8 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
-require '/home/user/vendor/autoload.php';
+//require '/home/user/vendor/autoload.php';
+require './vendor/autoload.php';
 
 
 
@@ -62,12 +62,12 @@ if(isset($_POST)){
         echo "<br>There are NO mistakes!";
         echo "<br>Mail sent to the email $email";
         switch($subject){
-            case "command" : $msg = "We have well received your command : $message \n\nYou must be delivered within the following days.
-                            \nA new mail of confirmation of the delivery of your command will be sent at least 24h before the delivery.\n\nHakers Poulette team.";
+            case "command" : $msg = "We have well received your command : <br><br>\"$message\"<br><br><br>You must be delivered within the following days.
+            <br>A new mail of confirmation of the delivery of your command will be sent at least 24h before the delivery.<br><br>Hakers Poulette team.";
                             break;
-            case "claim"   : $msg = "We have well received your claim : $message. \n\nWe will treat it as soon as possible.\n\nHakers Poulette team.";
+            case "claim"   : $msg = "We have well received your claim : <br><br>\"$message\"<br><br>We will treat it as soon as possible.<br><br>Hakers Poulette team.";
                             break;
-            default : $msg = "We have well received your message : $message\n\nHakers Poulette team.";
+            default : $msg = "We have well received your message : <br><br>\"$message\"<br><br><br>Hakers Poulette team.";
         }
         
         // Instantiation and passing `true` enables exceptions
@@ -110,8 +110,7 @@ if(isset($_POST)){
             //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 
             // Content
-            //$mail->isHTML(true);                                  // Set email format to HTML
-            $mail->isHTML(true);                                  // Set email as text
+            $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = $subject;
             $mail->Body    = $msg;
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
