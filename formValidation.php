@@ -16,14 +16,15 @@ use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
 //require '/home/user/vendor/autoload.php';
+console_log("before include vendor/autoloader.");
 include './vendor/autoload.php';
-
+console_log("after include vendor/autoloader.");
 
 
 //---------------------
-// echo "<pre>";
-// print_r($_POST);// to 
-// echo "</pre>";
+echo "<pre>";
+print_r($_POST);// to 
+echo "</pre>";
 $errors = [];
 $lastName = "";
 $firstName ="";
