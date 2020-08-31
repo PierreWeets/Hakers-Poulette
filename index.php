@@ -3,7 +3,8 @@
 echo '<!DOCTYPE html>
 <html lang="en">
 <head><title>Hackers Poulette form</title>
-    <meta charset="utf-8">
+    <link rel="stylesheet" href="./web fonts/bellota_regular_macroman/stylesheet.css" type="text/css" charset="utf-8" />
+
 </head>';
 echo '<style>
 
@@ -13,11 +14,18 @@ div {
     width: 60%;
     border-radius: 10px;
     background-color: #f2f2f2;
-    padding: 30px;
+    padding: 10px;
 }
 
 div.center{
     text-align: center;
+}
+
+div.img{
+  padding: 0px;
+  border-radius: 0px;
+  text-align: center;
+  background-color: red;
 }
 
 input[type=text],select {
@@ -63,7 +71,7 @@ input[type=submit]:hover {
 
 </style>';
 echo'<body>';
-
+echo'<div class="img"><img src="./img/hackers-poulette-logo.png"></img></div>';
 echo '<br><div><form method="POST" action="formValidation.php" >
 
     <label for="lastName">Lastname</label>

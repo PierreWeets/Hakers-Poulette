@@ -108,7 +108,7 @@ if(isset($_POST)){
 
             // Attachments
             //$mail->addAttachment('/home/user/Learning-Environment/404_not_found/ressources/404NotFound.jpeg');         // Add attachments
-            //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+            $mail->addAttachment('./img/hackers-poulette-logo.png', 'logo.jpg');    // Optional name
 
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
