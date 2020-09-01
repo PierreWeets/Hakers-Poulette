@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Bellota";
+    /*src: url("../fonts/Bellota-Regular.otf") ;*/
+    src: url("Bellota-Regular.otf") ;
+}
+
+html {
+    font-family: "Bellota";
+}

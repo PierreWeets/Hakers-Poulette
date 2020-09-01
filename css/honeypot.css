@@ -1,0 +1,4 @@
+/*honey pot CSS code , setting the input object in HTML hidden*/
+input[type="text"]#website {
+     display: none;
+}
