@@ -89,7 +89,8 @@ class SMTP
      *
      * @var int
      */
-    const DEBUG_SERVER = 2;
+    //const DEBUG_SERVER = 2;
+    const DEBUG_SERVER = 0;
 
     /**
      * Debug level to show connection status, client -> server and server -> client messages.
@@ -97,6 +98,7 @@ class SMTP
      * @var int
      */
     const DEBUG_CONNECTION = 3;
+    
 
     /**
      * Debug level to show all messages.

@@ -22,9 +22,9 @@ console_log("after include vendor/autoloader.");
 
 
 //---------------------
-echo "<pre>";
-print_r($_POST);// to 
-echo "</pre>";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
 $errors = [];
 $lastName = "";
 $firstName ="";
@@ -62,6 +62,7 @@ if(isset($_POST)){
 
         echo "<br>There are NO mistakes!";
         echo "<br>Mail sent to the email $email";
+        echo "<br><br>";
         switch($subject){
             case "command" : $msg = "We have well received your command : <br><br>\"$message\"<br><br><br>You must be delivered within the following days.
             <br>A new mail of confirmation of the delivery of your command will be sent at least 24h before the delivery.<br><br>Hakers Poulette team.";
@@ -71,8 +72,7 @@ if(isset($_POST)){
             default : $msg = "We have well received your message : <br><br>\"$message\"<br><br><br>Hakers Poulette team.";
         }
         
-        // Instantiation and passing `true` enables exceptions
-        $mail = new PHPMailer(true);
+
 
         $Serveur = "pro.eu.turbo-smtp.com";
         $SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
@@ -82,6 +82,9 @@ if(isset($_POST)){
         
 
         try {
+            // Instantiation and passing `true` enables exceptions
+            $mail = new PHPMailer(true);
+            $mail->SMTPDebug = 2;
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
             $mail->isSMTP();                                            // Send using SMTP
@@ -95,7 +98,7 @@ if(isset($_POST)){
             //Recipients
             $mail->setFrom($userName, 'Mailer');
             $mail->addAddress($email , ($firstName.$lastName));     // Add a recipient
-            //$mail->addAddress('ellen@example.com');               // Name is optional
+            //$mail->addAddress('ellen@example.com');                       // Name is optional
             // $mail->addReplyTo('info@example.com', 'Information');
             // $mail->addCC('cc@example.com');
             // $mail->addBCC('bcc@example.com');
