@@ -128,9 +128,9 @@ echo '<br><br><form method="POST" action="./index.php">
         <input type="text" name="firstName" value="'.$firstName.'" hidden>
         <input type="email" name="email" value="'.$email.'" hidden> >
         <input type="radio" name="gender" value="'.$gender.'" checked hidden>
-        <input type="text" name="country" value="'.$country.'" checked hidden>
-        <input type="text" name="subject" value="'.$subject.'" checked hidden>
-        <input type="text" name="message" value="'.$message.'" checked hidden>
+        <input type="text" name="country" value="'.$country.'" hidden>
+        <input type="text" name="subject" value="'.$subject.'" hidden>
+        <input type="text" name="message" value="'.$message.'" hidden>
         <input type="submit" name="submit" value="Return to form"></form>';
 
 ?>
