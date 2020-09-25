@@ -9,7 +9,6 @@ function console_log($output, $with_script_tags = true) {
 }
 console_log("form validation.");
 
-//$pass = "Piwi!5830";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
