@@ -71,15 +71,12 @@ if(isset($_POST)){
             default : $msg = "We have well received your message : <br><br>\"$message\"<br><br><br>Hakers Poulette team.";
         }
         
-
-
         $Serveur = "pro.eu.turbo-smtp.com";
         $SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $port = 465;
-        $userName = "pierre.weets@gmail.com";
-        $password ="A3Aw4lM4";
+        $userName = "user name";
+        $password = "password";
         
-
         try {
             // Instantiation and passing `true` enables exceptions
             $mail = new PHPMailer(true);
