@@ -71,12 +71,20 @@ if(isset($_POST)){
             default : $msg = "We have well received your message : <br><br>\"$message\"<br><br><br>Hakers Poulette team.";
         }
         
-        $Serveur = "pro.eu.turbo-smtp.com";
-        $SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $port = 465;
-        $userName = "user name";
-        $password = "password";
-        
+        // $Serveur = "pro.eu.turbo-smtp.com";
+        // $port = ;
+        // $userName = "user name";
+        // $password = "password";
+		
+		require_once('./vendor/autoload.php');
+		Dotenv\Dotenv::createImmutable(__DIR__)->load();
+
+		$SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+		$Serveur = $_ENV['SMTP_SERVER'];
+        $port = $_ENV['PORT'];
+        $userName = $_ENV['NAME'];
+        $password = $_ENV['PASSWORD'];
+		
         try {
             // Instantiation and passing `true` enables exceptions
             $mail = new PHPMailer(true);
