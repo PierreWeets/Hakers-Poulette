@@ -70,9 +70,11 @@ if(isset($_POST)){
                             break;
             default : $msg = "We have well received your message : <br><br>\"$message\"<br><br><br>Hakers Poulette team.";
         }
-
-		Dotenv\Dotenv::createImmutable(__DIR__)->load();
-
+		echo '<br>retrieving environment data:';
+		$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+		echo '<br>load environment data:';
+		$dotenv->load();
+		echo '<br>set mail parameters :';  
 		$SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 		$Server = $_ENV['SMTP_SERVER'];
       $port = $_ENV['PORT'];
