@@ -60,7 +60,7 @@ if(isset($_POST)){
     } else {
 
         echo "<br>There are NO mistakes!";
-        echo "<br>Mail sent to the email $email";
+        echo "<br>Mail shall be sent to the email $email";
         echo "<br><br>";
         switch($subject){
             case "command" : $msg = "We have well received your command : <br><br>\"$message\"<br><br><br>You must be delivered within the following days.
@@ -70,29 +70,26 @@ if(isset($_POST)){
                             break;
             default : $msg = "We have well received your message : <br><br>\"$message\"<br><br><br>Hakers Poulette team.";
         }
-        
-        // $Serveur = "pro.eu.turbo-smtp.com";
-        // $port = ;
-        // $userName = "user name";
-        // $password = "password";
-		
-		//require_once('./vendor/autoload.php');
+
 		Dotenv\Dotenv::createImmutable(__DIR__)->load();
 
 		$SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-		$Serveur = $_ENV['SMTP_SERVER'];
-        $port = $_ENV['PORT'];
-        $userName = $_ENV['NAME'];
-        $password = $_ENV['PASSWORD'];
-		
+		$Server = $_ENV['SMTP_SERVER'];
+      $port = $_ENV['PORT'];
+      $userName = $_ENV['NAME'];
+      $password = $_ENV['PASSWORD'];
+		echo '<br>used SMPT Server:'.($Server);
+
         try {
-            // Instantiation and passing `true` enables exceptions
+			   echo '<br>trying to send email:<br>' ;
+				// Instantiation and passing `true` enables exceptions
+				echo '<br>creating mail object.<br>' ;
             $mail = new PHPMailer(true);
-            $mail->SMTPDebug = 2;
+            //$mail->SMTPDebug = 2;
             //Server settings
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Disable verbose debug output
             $mail->isSMTP();                                            // Send using SMTP
-            $mail->Host       = $Serveur;                    // Set the SMTP server to send through
+            $mail->Host       = $Server;                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $mail->Username   = $userName;                     // SMTP username
             $mail->Password   = $password;                               // SMTP password
@@ -116,7 +113,7 @@ if(isset($_POST)){
             $mail->Subject = $subject;
             $mail->Body    = $msg;
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+				echo '<br>sending the mail.<br>' ;
             $mail->send();
             echo '<br>Message has been sent';
             console_log("Message has been sent.");
