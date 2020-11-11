@@ -116,6 +116,7 @@ if(isset($_POST)){
             $mail->Body    = $msg;
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 				echo '<br>sending the mail.<br>' ;
+				console_log '<br>sending the mail.<br>' ;
             $mail->send();
             echo '<br>Message has been sent';
             console_log("Message has been sent.");
