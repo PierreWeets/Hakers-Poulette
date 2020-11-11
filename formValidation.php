@@ -76,7 +76,7 @@ if(isset($_POST)){
         // $userName = "user name";
         // $password = "password";
 		
-		require_once('./vendor/autoload.php');
+		//require_once('./vendor/autoload.php');
 		Dotenv\Dotenv::createImmutable(__DIR__)->load();
 
 		$SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
