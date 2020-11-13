@@ -61,7 +61,11 @@ if(isset($_POST)){
 	//echo '<br>retrieving environment data:';
 	echoAndConsole_log_JS('retrieving environment data:');
 	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-	
+	$s = print_r($dotenv, 1);
+	echoAndConsole_log_JS('$dotenv:'.$s);
+	echoAndConsole_log_JS('var_dump $dotenv:'.var_dump($dotenv));
+	var_dump($dotenv);
+
 	//echo '<br>load environment data:';
 	echoAndConsole_log_JS('load environment data:');
 	$dotenv->load();
