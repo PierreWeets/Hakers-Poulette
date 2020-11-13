@@ -1,12 +1,6 @@
 <?php
 
-function console_log($output, $with_script_tags = true) {
-  $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . ');';
-  if ($with_script_tags) {
-      $js_code = '<script>'.$js_code.'</script>';
-  }
-  echo $js_code;
-}
+require_once ('./functions.php');
 
   $lastName = "";
   $firstName = "";
@@ -19,17 +13,15 @@ function console_log($output, $with_script_tags = true) {
 if(isset($_POST)){
   if(isset($_POST['lastName'])) $lastName = $_POST['lastName'];
   if(isset($_POST['firstName'])) $firstName = $_POST['firstName'];
-  if(isset($_POST['email']))$email = $_POST['email'];
-  if(isset($_POST['gender']))$gender = $_POST['gender'];
-  if(isset($_POST['country']))$country = $_POST['country'];
-  if(isset($_POST['subject']))$subject = $_POST['subject'];
-  if(isset($_POST['message']))$message = $_POST['message'];
+  if(isset($_POST['email'])) $email = $_POST['email'];
+  if(isset($_POST['gender'])) $gender = $_POST['gender'];
+  if(isset($_POST['country'])) $country = $_POST['country'];
+  if(isset($_POST['subject'])) $subject = $_POST['subject'];
+  if(isset($_POST['message'])) $message = $_POST['message'];
 }
 
-console_log("test PHP console log");
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
+echoAndConsole_log_JS("test PHP console log");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

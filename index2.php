@@ -1,14 +1,15 @@
 <?php
-require_once('./vendor/autoload.php');
-		Dotenv\Dotenv::createImmutable(__DIR__)->load();
-var_dump($_ENV);
-		//$SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-		$Serveur = $_ENV['SMTP_SERVER'];
-        $port = $_ENV['PORT'];
-        $userName = $_ENV['NAME'];
-		$password = $_ENV['PASSWORD'];
-		
-		var_dump($Serveur);
-		var_dump($port);
-		var_dump($userName);
-		var_dump($password);
+require_once('./functions.php');
+
+include './vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$Server = $_ENV['SMTP_SERVER'];
+$port = $_ENV['PORT'];
+$userName = $_ENV['NAME'];
+$password = $_ENV['PASSWORD'];
+console_log('used SMPT Server:'.($Server));
+console_log('used port:'.($port));
+console_log('used userName:'.($userName));
+console_log('used password:'.($password));
