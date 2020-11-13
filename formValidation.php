@@ -73,16 +73,10 @@ if(isset($_POST)){
 	//echo '<br>set mail parameters :';  
 	echoAndConsole_log_JS('set mail parameters :');  
 	$SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-	// $Server = $_ENV['SMTP_SERVER'];
-	// $port = $_ENV['PORT'];
-	// $userName = $_ENV['NAME'];
-	// $password = $_ENV['PASSWORD'];
-
-	$Server = 'smtp.gmail.com';
-	$port = 465;
-	$userName = 'pierre.weets@gmail.com';
-	$password = 'Pierre!5830';
-
+	$Server = $_ENV['SMTP_SERVER'];
+	$port = $_ENV['PORT'];
+	$userName = $_ENV['NAME'];
+	$password = $_ENV['PASSWORD'];
 	
 	//echo '<br>used SMPT Server:'.($Server);
 	echoAndConsole_log_JS('used SMPT Server:'.($Server));
