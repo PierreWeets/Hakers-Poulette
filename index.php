@@ -20,7 +20,7 @@ if(isset($_POST)){
   if(isset($_POST['message'])) $message = $_POST['message'];
 }
 
-echoAndConsole_log_JS("test PHP console log");
+//echoAndConsole_log_JS("country:".$country );
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ echoAndConsole_log_JS("test PHP console log");
     <div class="container-sm logo"><img role="image" src="./img/hackers-poulette-logo.png"></img></div>
     <br><div class="container-sm"><form role="form" id='submitForm' method='POST' action='formValidation.php' onsubmit="return toSubmit()" >
 
-    <label id="lastName-label" for='lastName'>lastName</label>
+    <label id="lastName-label" for='lastName'>LastName</label>
     <input aria-required="true" aria-labelledby="lastName-label" role="lastName" type='text' 
     id='lastName' name='lastName' required value = '<?php echo $lastName ?>' onblur=testName('lastName','lastName-error-label')>
     <label id="lastName-error-label" class="hidden text-danger">Error : only letters & "-"</label>
@@ -59,10 +59,22 @@ echoAndConsole_log_JS("test PHP console log");
     <input aria-required="true" aria-labelledby="gender-label" role="genderItem" type='radio' name='gender' value='M' required <?php echo ($gender == 'M')? 'checked':'' ?> >Man
     <input aria-required="true" aria-labelledby="gender-label" role="genderItem" type='radio' name='gender' value='F' required <?php echo ($gender == 'F')? 'checked':'' ?> >Woman
 
-    <br><label id="country-label" for='country'>Country</label>
-    <input aria-required="true" aria-labelledby="country-label" type='text' 
-    id='country' name='country' required  value = '<?php echo $country ?>' onblur=testName('country','country-error-label') >
-    <label id="country-error-label" class="hidden text-danger">Error : only letters & "-"</label>
+    <br>
+	<!-- <label id="country-label" for='country'>Country</label> -->
+	<?php require_once('./countries.php');?>
+	
+	<script>
+    let country = "<?php echo $country; ?>"; // get back the country
+	
+    if (country != '') {
+		console.log ("country="+country);
+        document.getElementById('country').value = country;// select option
+    }
+	</script>
+
+    <!-- <input aria-required="true" aria-labelledby="country-label" type='text' 
+    id='country' name='country' required  value = '<?php echo $country ?>' onblur=testName('country','country-error-label') > -->
+    <!-- <label id="country-error-label" class="hidden text-danger">Error : only letters & "-"</label> -->
 
     <br><label id="select-label" for='subject'>Subject</label >
     <select id='subject' aria-labelledby="select-label" aria-required="true" name='subject' >

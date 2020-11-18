@@ -7,9 +7,9 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
-echoAndConsole_log_JS("before include vendor/autoloader.");
-include './vendor/autoload.php';
-echoAndConsole_log_JS("after include vendor/autoloader.");
+console_log_JS("before include vendor/autoloader.");
+require_once './vendor/autoload.php';
+console_log_JS("after include vendor/autoloader.");
 
 //---------------------
 $errors = [];
@@ -26,6 +26,7 @@ if(isset($_POST)){
 	$country = $_POST['country'];
 	$subject = $_POST['subject'];
 	$message = $_POST['message'];
+	echo('country : '.$country);
 
 	// 1. Sanitisation
 	echo "<br>email before Sanitisation : $email";
@@ -59,33 +60,27 @@ if(isset($_POST)){
 					default : $msg = "We have well received your message : <br><br>\"$message\"<br><br><br>Hakers Poulette team.";
 			}
 	//echo '<br>retrieving environment data:';
-	echoAndConsole_log_JS('retrieving environment data:');
+	console_log_JS('retrieving environment data:');
 	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 	$s = print_r($dotenv, 1);
-	echoAndConsole_log_JS('$dotenv:'.$s);
-	echoAndConsole_log_JS('var_dump $dotenv:'.var_dump($dotenv));
-	var_dump($dotenv);
+	
+	console_log_JS('var_dump $dotenv:'.$s);
+	//var_dump($dotenv);
 
 	//echo '<br>load environment data:';
-	echoAndConsole_log_JS('load environment data:');
-	//$dotenv->load();
+	console_log_JS('load environment data:');
+	$dotenv->load();
 	
 	//echo '<br>set mail parameters :';  
-	echoAndConsole_log_JS('set mail parameters :');  
+	console_log_JS('set mail parameters :');  
 	$SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 	$Server = $_ENV['SMTP_SERVER'];
 	$port = $_ENV['PORT'];
 	$userName = $_ENV['NAME'];
 	$password = $_ENV['PASSWORD'];
-
-	$Server = 'smtp.gmail.com';
-	$port = 465;
-	$userName = 'pierre.weets@gmail.com';
-	$password = 'Pierre!5830';
-
 	
 	//echo '<br>used SMPT Server:'.($Server);
-	echoAndConsole_log_JS('used SMPT Server:'.($Server));
+	console_log_JS('used SMPT Server:'.($Server));
 
 		try {
 				//echo '<br>creating mail object.<br>';
@@ -106,10 +101,10 @@ if(isset($_POST)){
 
 				//Recipients
 				//echo '<br>... setting the From field of the mail :';
-				echoAndConsole_log_JS('... setting the From field of the mail :');
+				console_log_JS('... setting the From field of the mail :');
 				$mail->setFrom($userName, 'Mailer');
 				//echo '<br>... setting the From Address of the mail :';
-				echoAndConsole_log_JS('... setting the Address field of the mail :');
+				console_log_JS('... setting the Address field of the mail :');
 				$mail->addAddress($email , ($firstName.$lastName));     // Add a recipient
 				//$mail->addAddress('ellen@example.com');                       // Name is optional
 				// $mail->addReplyTo('info@example.com', 'Information');
@@ -118,13 +113,13 @@ if(isset($_POST)){
 
 				// Attachments
 				//echo '<br>... setting an attached file to the mail :';
-				echoAndConsole_log_JS('... setting an attached file to the mail :');
+				console_log_JS('... setting an attached file to the mail :');
 				//$mail->addAttachment('/home/user/Learning-Environment/404_not_found/ressources/404NotFound.jpeg');         // Add attachments
 				$mail->addAttachment('./img/hackers-poulette-logo.png', 'logo.png');    // Optional name
 
 				// Content
 				//echo '<br>... setting format to HTML :';
-				echoAndConsole_log_JS('... setting format to HTML :');
+				console_log_JS('... setting format to HTML :');
 				$mail->isHTML(true);                                  // Set email format to HTML
 				$mail->Subject = $subject;
 				$mail->Body    = $msg;

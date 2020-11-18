@@ -11,6 +11,11 @@ function console_log($output) {
 	print_r($output.PHP_EOL);//print a line with end-of-line => carriage return 
   }
 
+function echoAndConsole_log_JS($output){
+	echo '<br>'.$output.'<br>' ;
+	console_log_JS($output) ;
+}
+
 function write_log($log_msg)
 {
     $log_fileDir = "logs";
@@ -23,10 +28,4 @@ function write_log($log_msg)
     $log_fileName = $log_fileDir.'/debug-'.$currentDate.'.log';
   file_put_contents($log_fileName, $currentDate.'-'.$currentTime.' : '.$log_msg . "\n", FILE_APPEND);
 }
-
-function echoAndConsole_log_JS($output){
-	echo '<br>'.$output.'<br>' ;
-	console_log_JS($output) ;
-}
-
 ?>
