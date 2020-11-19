@@ -65,11 +65,10 @@ if(isset($_POST)){
 	$s = print_r($dotenv, 1);
 	
 	console_log_JS('var_dump $dotenv:'.$s);
-	//var_dump($dotenv);
 
 	//echo '<br>load environment data:';
 	console_log_JS('load environment data:');
-	$dotenv->load();
+	//$dotenv->load();
 	
 	//echo '<br>set mail parameters :';  
 	console_log_JS('set mail parameters :');  
@@ -79,6 +78,11 @@ if(isset($_POST)){
 	$userName = $_ENV['NAME'];
 	$password = $_ENV['PASSWORD'];
 	
+	// $Server = getenv('SMTP_SERVER');
+	// $port = getenv('PORT');
+	// $userName = getenv('NAME');
+	// $password = getenv('PASSWORD');
+
 	//echo '<br>used SMPT Server:'.($Server);
 	console_log_JS('used SMPT Server:'.($Server));
 
@@ -126,7 +130,7 @@ if(isset($_POST)){
 				//$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 				//echo '<br>sending the mail.<br>' ;
 				echoAndConsole_log_JS('sending the mail.') ;
-				$mail->send();
+				//$mail->send();
 				//echo '<br>Message has been sent';
 				echoAndConsole_log_JS("Message has been sent.");
 
