@@ -59,14 +59,13 @@ if(isset($_POST)){
 													break;
 					default : $msg = "We have well received your message : <br><br>\"$message\"<br><br><br>Hakers Poulette team.";
 			}
-	//echo '<br>retrieving environment data:';
+			
 	console_log_JS('retrieving environment data:');
 	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 	$s = print_r($dotenv, 1);
 	
 	console_log_JS('var_dump $dotenv:'.$s);
 
-	//echo '<br>load environment data:';
 	console_log_JS('load environment data:');
 	//$dotenv->load();
 	
@@ -77,11 +76,6 @@ if(isset($_POST)){
 	$port = $_ENV['PORT'];
 	$userName = $_ENV['NAME'];
 	$password = $_ENV['PASSWORD'];
-	
-	// $Server = getenv('SMTP_SERVER');
-	// $port = getenv('PORT');
-	// $userName = getenv('NAME');
-	// $password = getenv('PASSWORD');
 
 	//echo '<br>used SMPT Server:'.($Server);
 	console_log_JS('used SMPT Server:'.($Server));
@@ -129,8 +123,8 @@ if(isset($_POST)){
 				$mail->Body    = $msg;
 				//$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 				//echo '<br>sending the mail.<br>' ;
-				echoAndConsole_log_JS('sending the mail.') ;
-				//$mail->send();
+				echoAndConsole_log_JS('... sending the mail.') ;
+				$mail->send();
 				//echo '<br>Message has been sent';
 				echoAndConsole_log_JS("Message has been sent.");
 
