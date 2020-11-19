@@ -59,7 +59,7 @@ if(isset($_POST)){
 													break;
 					default : $msg = "We have well received your message : <br><br>\"$message\"<br><br><br>Hakers Poulette team.";
 			}
-			
+
 	console_log_JS('retrieving environment data:');
 	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 	$s = print_r($dotenv, 1);
@@ -67,7 +67,7 @@ if(isset($_POST)){
 	console_log_JS('var_dump $dotenv:'.$s);
 
 	console_log_JS('load environment data:');
-	//$dotenv->load();
+	$dotenv->load();
 	
 	//echo '<br>set mail parameters :';  
 	console_log_JS('set mail parameters :');  
